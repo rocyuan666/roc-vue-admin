@@ -2,9 +2,9 @@
 
 > 介绍：本项目是基于Vue技术栈+ElementUI的SPA项目
 
-> 个人网站：[www.luojing.top](http://luojing.top) 或 百度一下 [rocyuan](https://www.baidu.com/s?ie=UTF-8&wd=rocyuan)
+> 个人网站：[https://www.luojing.top](https://luojing.top) 或 百度一下 [rocyuan](https://www.baidu.com/s?ie=UTF-8&wd=rocyuan)
 
-> 项目地址：[www.luojing.top/vue_admin](http://luojing.top/vue_admin) 
+> <del>项目地址：[https://www.luojing.top/vue_admin](http://luojing.top/vue_admin) </del>地址暂时不可用，请clone项目。
 
 > username: ` admin ` password: ` 123456 `
 ## 功能

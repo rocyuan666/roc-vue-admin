@@ -1,7 +1,7 @@
 //发布 阶段需要用到的 babel 插件
 const prodPlugins = []
 if(process.env.NODE_ENV === 'production') {
-  //发布阶段
+  //发布阶段：production   开发阶段：develop
   prodPlugins.push('transform-remove-console')
 }
 
