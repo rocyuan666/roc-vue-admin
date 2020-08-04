@@ -4,7 +4,7 @@
 
 > 个人网站：[https://www.luojing.top](https://luojing.top) 或 百度一下 [rocyuan](https://www.baidu.com/s?ie=UTF-8&wd=rocyuan)
 
-> <del>项目地址：[https://www.luojing.top/vue_admin](http://luojing.top/vue_admin) </del>地址暂时不可用，请clone项目。
+> 项目地址：[http://roc.luojing.top/vueadmin](http://roc.luojing.top/vueadmin)
 
 > username: ` admin ` password: ` 123456 `
 ## 功能
@@ -35,7 +35,7 @@
 
 ## 关于接口数据
 
-> 本人提供的接口地址（baseURL）：<del>` http://www.luojing.top:8080/api/private/v1 `</del>端口占用，暂不可用（可下载接口项目到本地进行调用），    注意！！！大家别乱删数据，删了请添加回去；如出现被删除导致数据库删空，请联系本人：` yuanpeng0704@gmail.com ` 、` yp.p@qq.com `，我将抽空重新恢复导入数据库数据
+> 本人提供的接口地址（baseURL）：` http://www.luojing.top:8080/api/private/v1 `注意！！！大家别乱删数据，删了请添加回去；如出现被删除导致数据库删空，请联系本人：` yuanpeng0704@gmail.com ` 、` yp.p@qq.com `，我将抽空重新恢复导入数据库数据
 
 > 接口源码下载（直接用我的接口地址，不用下载）：[点击下载](http://luojing.top/api_serve.zip)
 
