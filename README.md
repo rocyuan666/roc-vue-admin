@@ -35,7 +35,7 @@
 
 ## 关于接口数据
 
-> 本人提供的接口地址（baseURL）：` http://www.luojing.top:8080/api/private/v1 `注意！！！大家别乱删数据，删了请添加回去；如出现被删除导致数据库删空，请联系本人：` yuanpeng0704@gmail.com ` 、` yp.p@qq.com `，我将抽空重新恢复导入数据库数据
+> 本人提供的接口地址（baseURL）：` http://www.luojing.top:8888/api/private/v1 `注意！！！大家别乱删数据，删了请添加回去；如出现被删除导致数据库删空，请联系本人：` yuanpeng0704@gmail.com ` 、` yp.p@qq.com `，我将抽空重新恢复导入数据库数据
 
 > 接口源码下载（直接用我的接口地址，不用下载）：[点击下载](http://luojing.top/api_serve.zip)
 
