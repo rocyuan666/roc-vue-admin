@@ -15,7 +15,7 @@ service.interceptors.request.use(
   config => {
     // 在发送请求之前执行某些操作
 
-    if (store.getters.token) {
+    if (store.getters['user/token']) {
       // 让每个请求携带token
       // ['X-Token'] 是自定义 headers key
       // 请根据实际情况进行修改

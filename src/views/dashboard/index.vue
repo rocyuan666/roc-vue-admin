@@ -11,10 +11,10 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Dashboard',
   computed: {
-    ...mapGetters([
-      'name',
-      'roles'
-    ])
+    ...mapGetters({
+      name: 'user/name',
+      roles: 'user/roles'
+    })
   }
 }
 </script>

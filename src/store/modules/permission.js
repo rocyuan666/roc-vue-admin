@@ -40,7 +40,7 @@ const state = {
 }
 
 const getters = {
-  permission_routes: state => state.routes
+  routes: state => state.routes
 }
 
 const mutations = {
