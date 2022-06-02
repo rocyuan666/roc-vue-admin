@@ -8,6 +8,11 @@ const state = {
   device: 'desktop'
 }
 
+const getters = {
+  sidebar: state => state.sidebar,
+  device: state => state.device
+}
+
 const mutations = {
   TOGGLE_SIDEBAR: state => {
     state.sidebar.opened = !state.sidebar.opened
@@ -41,8 +46,8 @@ const actions = {
 }
 
 export default {
-  namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }

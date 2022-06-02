@@ -11,6 +11,13 @@ const getDefaultState = () => {
   }
 }
 
+const getters = {
+  token: state => state.token,
+  avatar: state => state.avatar,
+  name: state => state.name,
+  roles: state => state.roles
+}
+
 const state = getDefaultState()
 
 const mutations = {
@@ -99,8 +106,8 @@ const actions = {
 }
 
 export default {
-  namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }
