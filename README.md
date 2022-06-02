@@ -1,137 +1,91 @@
-# 电商后台管理系统(前端Vue项目）
+# vue-admin-template
 
-> 介绍：本项目是基于Vue技术栈+ElementUI的SPA项目
+English | [简体中文](./README-zh.md)
 
-> 个人网站：[https://www.luojing.top](https://luojing.top) 或 百度一下 [rocyuan](https://www.baidu.com/s?ie=UTF-8&wd=rocyuan)
+> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
 
-> 项目地址：[http://roc.luojing.top/vueadmin](http://roc.luojing.top/vueadmin)
+**Live demo:** http://panjiachen.github.io/vue-admin-template
 
-> username: ` admin ` password: ` 123456 `
-## 功能
 
-- 登录
-- 注销
-- 用户管理
-  - 用户列表
-- 用户管理
-  - 角色列表
-  - 权限列表
-- 商品管理
-  - 商品列表
-  - 分类参数
-  - 商品分类
-- 订单管理
-  - 订单列表
-- 数据统计
-  - 数据报表
+**The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0), it does not rely on `vue-cli`**
 
-## 技术栈
+## Build Setup
 
-- Vue
-- Vue-router
-- axios (进行了封装，降低axios与项目的耦合度)
-- ElementUI
-- Echarts
 
-## 关于接口数据
+```bash
+# clone the project
+git clone https://github.com/PanJiaChen/vue-admin-template.git
 
-> 本人提供的接口地址（baseURL）：` http://roc.luojing.top:8888/api/private/v1 `注意！！！大家别乱删数据，删了请添加回去；如出现被删除导致数据库删空，请联系本人：` yuanpeng0704@gmail.com ` 、` rocyuan@luojing.top `，我将抽空重新恢复导入数据库数据
+# enter the project directory
+cd vue-admin-template
 
-> 接口源码下载（直接用我的接口地址，不用下载）：[点击下载](http://luojing.top/api_serve.zip)
+# install dependency
+npm install
 
-### 源码说明（直接用我的接口，下面可略过）： 
-
-> 安装 ` node ` 
-
-> 将 ` db ` 文件夹下的 ` mydb.sql ` 导入数据库
-
-> ` config > default.json ` 修改连接数据库账号密码等配置
-
-> ` node app.js ` 跑起来
-
-### 接口文档
-
-[接口文档](api.md)
-
-## 项目结构
-
-```
-.
-├── src                                         // 源码目录
-│   ├── assets                                  // 静态资源
-│   │   ├── css                                 // css文件
-│   │   └── img                                 // 图片文件
-│   ├── common                                  // 公共js文件（工具，等）
-│   ├── components                              // 组件
-│   │   └── MbxNav.vue                          // 公共面包屑导航
-│   ├── network                                 // 数据请求
-│   │   ├── request.js                          // axios配置，以及封装axios
-│   │   ├── goods.js                            // 商品管理 请求业务
-│   │   ├── home.js                             // 用户列表 主页请求业务
-│   │   ├── login.js                            // 登录页面 请求业务
-│   │   ├── orders.js                           // 订单管理 请求业务
-│   │   ├── reports.js                          // 数据统计 请求业务
-│   │   └── rights.js                           // 权限管理 请求业务
-│   ├── plugins                                 // 插件目录（elementUI.js）
-│   ├── router                                  // 路由目录
-│   │   └── index.js                            // 路由配置
-│   ├── views                                   // 主要页面目录
-│   │   ├── home                                // 首页目录
-│   │   │   ├── Home.vue                        // 首页
-│   │   │   ├── children                        // 子页面目录
-│   │   │   │   ├── Welcome.vue                 // 欢迎页面
-│   │   │   │   ├── users                       // 用户管理目录
-│   │   │   │   │   └── UserList.vue            // 用户列表页
-│   │   │   │   ├── roles                       // 权限管理目录
-│   │   │   │   │   ├── RolesList.vue           // 角色列表页
-│   │   │   │   │   └── RightsList.vue          // 权限列表页
-│   │   │   │   ├── goods                       // 商品管理目录
-│   │   │   │   │   ├── GoodsList.vue           // 商品列表页
-│   │   │   │   │   ├── Add.vue                 // 添加商品页
-│   │   │   │   │   ├── Params.vue              // 分类参数页
-│   │   │   │   │   └── CategoriesList.vue      // 商品分类页
-│   │   │   │   ├── orders                      // 订单管理目录
-│   │   │   │   │   └── OrdersList.vue          // 订单列表页
-│   │   │   │   ├── reports                     // 数据统计目录
-│   │   │   │   │   └── Reports.vue             // 数据报表页
-│   │   ├── login                               // 登录目录
-│   │   │   └── Login.vue                       // 登录页
-
+# develop
+npm run dev
 ```
 
+This will automatically open http://localhost:9528
 
-## 项目优化 (具体优化方法见个人网站) [RocYuan](http://www.luojing.top/rocyuan)
+## Build
 
-` 个人不喜欢在github写一些 心得记录 有时间的话基本都写在个人网站 `
+```bash
+# build for test environment
+npm run build:stage
 
-- 顶部进度条（nprogress）
+# build for production environment
+npm run build:prod
+```
 
-- 去掉console（babel-plugin-transform-remove-console）
+## Advanced
 
-- 开发模式，发布模式入口调整（chainWebpack）
+```bash
+# preview the release environment effect
+npm run preview
 
-- 发布模式使用cdn资源（externals）
+# preview the release environment effect + static resource analysis
+npm run preview -- --report
 
-- 定制index.html页面
+# code format check
+npm run lint
 
+# code format check and auto fix
+npm run lint -- --fix
+```
 
-## 应用部分截图
+Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
 
-<img src="http://luojing.top/adminimg/1-1.jpg" />
+## Demo
 
-<img src="http://luojing.top/adminimg/1-2.jpg" />
+![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
 
-<img src="http://luojing.top/adminimg/2-1.jpg" />
+## Extra
 
-<img src="http://luojing.top/adminimg/2-2.jpg" />
+If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)
 
-<img src="http://luojing.top/adminimg/4-1.jpg" />
+For `typescript` version, you can use [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
 
-<img src="http://luojing.top/adminimg/4-2.jpg" />
+## Related Project
 
-<img src="http://luojing.top/adminimg/5-1.jpg" />
+- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
-<img src="http://luojing.top/adminimg/6-1.jpg" />
+- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
 
-<img src="http://luojing.top/adminimg/7-1.jpg" />
+- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
 
+- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
+
+## Browsers support
+
+Modern browsers and Internet Explorer 10+.
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
+| --------- | --------- | --------- | --------- |
+| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
+
+## License
+
+[MIT](https://github.com/PanJiaChen/vue-admin-template/blob/master/LICENSE) license.
+
+Copyright (c) 2017-present PanJiaChen

@@ -1,109 +1,186 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
+
+Vue.use(Router)
+
+/* Layout */
+import Layout from '@/layout'
 
 /**
- * 重写路由的push方法、replace方法,防止报错
+ * Note: sub-menu only appear when route children.length >= 1
+ * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
+ *
+ * hidden: true                   if set true, item will not show in the sidebar(default is false)
+ * alwaysShow: true               if set true, will always show the root menu
+ *                                if not set alwaysShow, when item has more than one children route,
+ *                                it will becomes nested mode, otherwise not show the root menu
+ * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
+ * name:'router-name'             the name is used by <keep-alive> (must set!!!)
+ * meta : {
+    roles: ['admin','editor']    control the page roles (you can set multiple roles)
+    title: 'title'               the name show in sidebar and breadcrumb (recommend set)
+    icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
+    breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
+    activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
+  }
  */
-const routerPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return routerPush.call(this, location).catch(error=> error)
-}
-const originalReplace = VueRouter.prototype.replace;
-VueRouter.prototype.replace = function replace(location) {
-  return originalReplace.call(this, location).catch(err => err);
-};
 
-const Login = () => import('views/login/Login')
-const Home = () => import('views/home/Home')
-
-const Welcome = () => import('views/home/children/Welcome')
-const UserList = () => import('views/home/children/users/UserList')
-const RolesList = () => import('views/home/children/roles/RolesList')
-const RightsList = () => import('views/home/children/roles/RightsList')
-const GoodsList = () => import('views/home/children/goods/GoodsList')
-const Params = () => import('views/home/children/goods/Params')
-const Add = () => import('views/home/children/goods/Add')
-const CategoriesList = () => import('views/home/children/goods/CategoriesList')
-const OrdersList = () => import('views/home/children/orders/OrdersList')
-const Reports = () => import('views/home/children/reports/Reports')
-
-
-
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    redirect: '/login'
-  },
+/**
+ * constantRoutes
+ * a base page that does not have permission requirements
+ * all roles can be accessed
+ */
+export const constantRoutes = [
   {
     path: '/login',
-    component: Login
+    component: () => import('@/views/login/index'),
+    hidden: true
   },
+
   {
-    path: '/home',
-    component: Home,
-    redirect: '/welcome',
+    path: '/404',
+    component: () => import('@/views/404'),
+    hidden: true
+  },
+
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [{
+      path: 'dashboard',
+      name: 'Dashboard',
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: 'Dashboard', icon: 'dashboard' }
+    }]
+  },
+
+  {
+    path: '/example',
+    component: Layout,
+    redirect: '/example/table',
+    name: 'Example',
+    meta: { title: 'Example', icon: 'el-icon-s-help' },
     children: [
       {
-        path: '/welcome',
-        component: Welcome
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Table', icon: 'table' }
       },
       {
-        path: '/users',
-        component: UserList
-      },
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
+
+  {
+    path: '/form',
+    component: Layout,
+    children: [
       {
-        path: '/roles',
-        component: RolesList
-      },
-      {
-        path: '/rights',
-        component: RightsList
-      },
-      {
-        path: '/goods',
-        component: GoodsList,
-      },
-      {
-        path: '/goods/add',
-        component: Add,
-      },
-      {
-        path: '/params',
-        component: Params
-      },
-      {
-        path: '/categories',
-        component: CategoriesList
-      },
-      {
-        path: '/orders',
-        component: OrdersList
-      },
-      {
-        path: '/reports',
-        component: Reports
+        path: 'index',
+        name: 'Form',
+        component: () => import('@/views/form/index'),
+        meta: { title: 'Form', icon: 'form' }
       }
     ]
   }
 ]
-const router = new VueRouter({
-    routes
+
+/**
+ * asyncRoutes
+ * the routes that need to be dynamically loaded based on user roles
+ */
+export const asyncRoutes = [
+  {
+    path: '/nested',
+    component: Layout,
+    redirect: '/nested/menu1',
+    name: 'Nested',
+    meta: {
+      title: 'Nested',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'menu1',
+        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        name: 'Menu1',
+        meta: { title: 'Menu1' },
+        children: [
+          {
+            path: 'menu1-1',
+            component: () => import('@/views/nested/menu1/menu1-1'),
+            name: 'Menu1-1',
+            meta: { title: 'Menu1-1' }
+          },
+          {
+            path: 'menu1-2',
+            component: () => import('@/views/nested/menu1/menu1-2'),
+            name: 'Menu1-2',
+            meta: { title: 'Menu1-2' },
+            children: [
+              {
+                path: 'menu1-2-1',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                name: 'Menu1-2-1',
+                meta: { title: 'Menu1-2-1' }
+              },
+              {
+                path: 'menu1-2-2',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                name: 'Menu1-2-2',
+                meta: { title: 'Menu1-2-2' }
+              }
+            ]
+          },
+          {
+            path: 'menu1-3',
+            component: () => import('@/views/nested/menu1/menu1-3'),
+            name: 'Menu1-3',
+            meta: { title: 'Menu1-3' }
+          }
+        ]
+      },
+      {
+        path: 'menu2',
+        component: () => import('@/views/nested/menu2/index'),
+        meta: { title: 'menu2' }
+      }
+    ]
+  },
+
+  {
+    path: 'external-link',
+    component: Layout,
+    children: [
+      {
+        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+        meta: { title: 'External Link', icon: 'link' }
+      }
+    ]
+  },
+
+  // 404 page must be placed at the end !!!
+  { path: '*', redirect: '/404', hidden: true }
+]
+
+const createRouter = () => new Router({
+  // mode: 'history', // require service support
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRoutes
 })
 
-// 是否已经登录  导航守卫
-router.beforeEach((to, from, next) => {
-  if(to.path === '/login'){
-    return next()
-  }
-  // 获取到token (有无token判断，是否登录)
-  const tokenStr = window.sessionStorage.getItem('token')
-  if(!tokenStr){
-    return next('/login')
-  }else{
-    return next()
-  }
-})
+const router = createRouter()
+
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
 
 export default router
