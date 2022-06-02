@@ -3,7 +3,7 @@
  */
 
 /**
- * Parse the time to string
+ * 解析时间字符串
  * @param {(Object|string|number)} time
  * @param {string} cFormat
  * @returns {string | null}
@@ -19,10 +19,10 @@ export function parseTime(time, cFormat) {
   } else {
     if ((typeof time === 'string')) {
       if ((/^[0-9]+$/.test(time))) {
-        // support "1548221490638"
+        // 支持 "1548221490638"
         time = parseInt(time)
       } else {
-        // support safari
+        // 支持 safari
         // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
         time = time.replace(new RegExp(/-/gm), '/')
       }
@@ -44,7 +44,7 @@ export function parseTime(time, cFormat) {
   }
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
-    // Note: getDay() returns 0 on Sunday
+    // 注意: getDay() 在星期天返回0
     if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
     return value.toString().padStart(2, '0')
   })
@@ -70,7 +70,7 @@ export function formatTime(time, option) {
   if (diff < 30) {
     return '刚刚'
   } else if (diff < 3600) {
-    // less 1 hour
+    // 少于1小时
     return Math.ceil(diff / 60) + '分钟前'
   } else if (diff < 3600 * 24) {
     return Math.ceil(diff / 3600) + '小时前'

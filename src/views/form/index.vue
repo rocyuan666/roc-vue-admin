@@ -1,47 +1,47 @@
 <template>
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
-      <el-form-item label="Activity name">
+      <el-form-item label="活动名称">
         <el-input v-model="form.name" />
       </el-form-item>
-      <el-form-item label="Activity zone">
-        <el-select v-model="form.region" placeholder="please select your zone">
-          <el-option label="Zone one" value="shanghai" />
-          <el-option label="Zone two" value="beijing" />
+      <el-form-item label="活动区域">
+        <el-select v-model="form.region" placeholder="请选择您的区域">
+          <el-option label="区域1" value="shanghai" />
+          <el-option label="区域2" value="beijing" />
         </el-select>
       </el-form-item>
-      <el-form-item label="Activity time">
+      <el-form-item label="活动时间">
         <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%;" />
+          <el-date-picker v-model="form.date1" type="date" placeholder="选择日期" style="width: 100%;" />
         </el-col>
         <el-col :span="2" class="line">-</el-col>
         <el-col :span="11">
-          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;" />
+          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="选择时间" style="width: 100%;" />
         </el-col>
       </el-form-item>
-      <el-form-item label="Instant delivery">
+      <el-form-item label="即时交付">
         <el-switch v-model="form.delivery" />
       </el-form-item>
-      <el-form-item label="Activity type">
+      <el-form-item label="活动类型">
         <el-checkbox-group v-model="form.type">
-          <el-checkbox label="Online activities" name="type" />
-          <el-checkbox label="Promotion activities" name="type" />
-          <el-checkbox label="Offline activities" name="type" />
-          <el-checkbox label="Simple brand exposure" name="type" />
+          <el-checkbox label="在线活动" name="type" />
+          <el-checkbox label="促销活动" name="type" />
+          <el-checkbox label="脱机活动" name="type" />
+          <el-checkbox label="简单的品牌" name="type" />
         </el-checkbox-group>
       </el-form-item>
-      <el-form-item label="Resources">
+      <el-form-item label="资源">
         <el-radio-group v-model="form.resource">
-          <el-radio label="Sponsor" />
-          <el-radio label="Venue" />
+          <el-radio label="赞助商" />
+          <el-radio label="地点" />
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Activity form">
+      <el-form-item label="活动表单">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel">Cancel</el-button>
+        <el-button type="primary" @click="onSubmit">确定</el-button>
+        <el-button @click="onCancel">取消</el-button>
       </el-form-item>
     </el-form>
   </div>

@@ -51,8 +51,8 @@ export default {
     }
   },
   data() {
-    // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
-    // TODO: refactor with render function
+    // 修复 https://github.com/PanJiaChen/vue-admin-template/issues/237
+    // TODO：使用渲染函数重构
     this.onlyOneChild = null
     return {}
   },

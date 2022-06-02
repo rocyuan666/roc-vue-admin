@@ -54,14 +54,14 @@ const actions = {
         const { data } = response
 
         if (!data) {
-          reject('Verification failed, please Login again.')
+          reject('验证失败，请重新登录。')
         }
 
         const { roles, name, avatar } = data
 
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
-          reject('getInfo: roles must be a non-null array!')
+          reject('getInfo：角色必须是非空数组！')
         }
 
         commit('SET_ROLES', roles)
@@ -74,11 +74,11 @@ const actions = {
     })
   },
 
-  // user logout
+  // 用户退出
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
-        removeToken() // must remove  token  first
+        removeToken() // 必须先删除token
         resetRouter()
         commit('RESET_STATE')
         resolve()
@@ -88,10 +88,10 @@ const actions = {
     })
   },
 
-  // remove token
+  // 清除 token
   resetToken({ commit }) {
     return new Promise(resolve => {
-      removeToken() // must remove  token  first
+      removeToken() // 必须先删除token
       commit('RESET_STATE')
       resolve()
     })
