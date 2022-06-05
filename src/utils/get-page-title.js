@@ -1,4 +1,4 @@
-import defaultSettings from '@/settings'
+import defaultSettings from '@/config/settings'
 
 const title = defaultSettings.title || 'Roc Vue Admin'
 
