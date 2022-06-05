@@ -51,8 +51,14 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: '仪表盘', icon: 'dashboard' }
     }]
-  },
+  }
+]
 
+/**
+ * asyncRoutes
+ * 需要根据用户角色动态加载的路由
+ */
+export const asyncRoutes = [
   {
     path: '/example',
     component: Layout,
@@ -86,14 +92,8 @@ export const constantRoutes = [
         meta: { title: '表单', icon: 'form' }
       }
     ]
-  }
-]
+  },
 
-/**
- * asyncRoutes
- * 需要根据用户角色动态加载的路由
- */
-export const asyncRoutes = [
   {
     path: '/nested',
     component: Layout,
