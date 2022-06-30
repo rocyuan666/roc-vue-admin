@@ -77,6 +77,12 @@ export const asyncRoutes = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: '树形结构', icon: 'tree' }
+      },
+      {
+        path: 'codeEdit',
+        name: 'CodeEdit',
+        component: () => import('@/views/codeEdit/index'),
+        meta: { title: '代码编辑', icon: 'el-icon-s-ticket' }
       }
     ]
   },
