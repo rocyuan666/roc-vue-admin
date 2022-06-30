@@ -11,15 +11,15 @@ const tokens = {
 const users = {
   'admin-token': {
     roles: ['admin'],
-    introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Super Admin'
+    introduction: '我是超级管理员',
+    avatar: 'https://luojing.top/rocyuan/images/roc-head.png',
+    name: '超级管理员'
   },
   'editor-token': {
     roles: ['editor'],
-    introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
+    introduction: '我是一名编辑',
+    avatar: 'https://luojing.top/rocyuan/images/roc-head.png',
+    name: '编辑员'
   }
 }
 
